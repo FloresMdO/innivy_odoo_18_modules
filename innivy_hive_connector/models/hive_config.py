@@ -1,7 +1,6 @@
 
 # -*- coding: utf-8 -*-
-from dataclasses import field
-from odoo import models, fields, api
+from odoo import models, fields
 
 class HiveConfig(models.TransientModel):
     _name = 'hive.config'
@@ -10,7 +9,6 @@ class HiveConfig(models.TransientModel):
     name = fields.Char(
         required=True
     )
-    
     hive_url = fields.Char(
         string="HIVE API URL", 
         default='http://localhost:18790'
@@ -30,6 +28,3 @@ class HiveConfig(models.TransientModel):
                 record.is_hive_enabled = True 
             else:
                 record.is_hive_enabled = False 
-        
-    
-    

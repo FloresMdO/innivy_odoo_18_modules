@@ -29,7 +29,7 @@
                     <div class="oe_title">
                         <label for="name"/>
                         <h1>
-                            <field name="name" placeholder="Ej. Mi Conector Hive"/>
+                            <field name="name" placeholder="My Hive Connector"/>
                         </h1>
                     </div>
                     <notebook>
@@ -51,7 +51,7 @@
     </record>
 
     <!-- Menu Item -->
-    <menuitem id="hive_config_menu_root" name="HIVE">
+    <menuitem id="hive_config_menu_root" name="HIVE" web_icon="innivy_hive_connector,static/description/icon.png">
         <menuitem id="hive_config_menu" action="hive_config_action"/>
     </menuitem>
 </odoo>
