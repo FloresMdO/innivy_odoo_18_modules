@@ -1,8 +1,8 @@
 
 # -*- coding: utf-8 -*-
-from odoo import models, fields
+from odoo import models, fields, api
 
-class HiveConfig(models.TransientModel):
+class HiveConfig(models.Model):
     _name = 'hive.config'
     _description = "Hive Configuration"
     
@@ -18,13 +18,9 @@ class HiveConfig(models.TransientModel):
     )
     is_hive_enabled = fields.Boolean(
         string="ENABLED",
-        compute='_compute_is_hive_enabled',
         readonly=False
     )
-    
-    def _compute_is_hive_enabled(self):
-        for record in self:
-            if record.hive_url and record.hive_token:
-                record.is_hive_enabled = True 
-            else:
-                record.is_hive_enabled = False 
+    hive_user_id = fields.Many2one(
+        'res.partner',
+        string="USER",
+    )

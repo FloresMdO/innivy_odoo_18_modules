@@ -2,7 +2,7 @@
 <odoo>
     <!-- Action Window-->
     <record id="hive_config_action" model="ir.actions.act_window">
-        <field name="name">Hive Configuration</field>
+        <field name="name">Configuration</field>
         <field name="res_model">hive.config</field>
         <field name="view_mode">list,form</field>
     </record>
@@ -14,6 +14,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="hive_user_id"/>
                 <field name="is_hive_enabled" widget="boolean_toggle"/>
             </list>
         </field>
@@ -36,8 +37,9 @@
                         <page name="Configuration" string="Configuration">
                             <group>
                                 <group>
-                                    <field name="hive_url"/>
-                                    <field name="hive_token"/>
+                                    <field name="hive_url" readonly="is_hive_enabled"/>
+                                    <field name="hive_token" readonly="is_hive_enabled" password="True"/>
+                                    <field name="hive_user_id" readonly="is_hive_enabled"/>
                                 </group>
                                 <group>
                                     <field name="is_hive_enabled" widget="boolean_toggle"/>
@@ -49,9 +51,4 @@
             </form>
         </field>
     </record>
-
-    <!-- Menu Item -->
-    <menuitem id="hive_config_menu_root" name="HIVE" web_icon="innivy_hive_connector,static/description/icon.png">
-        <menuitem id="hive_config_menu" action="hive_config_action"/>
-    </menuitem>
 </odoo>
