@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu Item -->
+    <menuitem id="hive_config_menu_root" name="HIVE" web_icon="innivy_hive_connector,static/description/icon.png">
+        <menuitem id="hive_config_menu" action="hive_config_action"/>
+    </menuitem>
+</odoo>

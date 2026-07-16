@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="partner_hive_bot" model="res.partner">
+            <field name="name">Hive Agent</field>
+            <field name="email">hive@innivy.com</field>
+            <field name="is_company" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="user_hive_bot" model="res.users">
+            <field name="name">Bee Agent</field>
+            <field name="login">bee_agent@hive.com</field>
+            <field name="partner_id" ref="partner_hive_bot"/>
+            <field name="active" eval="True"/>
+            <field name="notification_type">email</field>
+            <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="channel_hive_core" model="discuss.channel">
+            <field name="name">HIVE HQ</field>
+            <field name="channel_type">channel</field>
+        </record>
+
+        <record id="channel_member_hive_bot" model="discuss.channel.member">
+            <field name="channel_id" ref="channel_hive_core"/>
+            <field name="partner_id" ref="partner_hive_bot"/>
+        </record>
+    </data>
+</odoo>
